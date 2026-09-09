@@ -1,0 +1,9 @@
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import Header from '../components/Header'; import Footer from '../components/Footer'; import ProductCard from '../components/ProductCard'; import {api} from '../lib/api';
+export default function Shop(){
+ const [params,setParams]=useSearchParams(); const [data,setData]=useState<any>(null); const [q,setQ]=useState(params.get('q')||''); const [cat,setCat]=useState(params.get('category')||''); const [sort,setSort]=useState('new');
+ const load=()=>api<any>(`/products?q=${encodeURIComponent(q)}&category=${encodeURIComponent(cat)}&sort=${sort}`).then(setData).catch(()=>setData({items:[]}));
+ useEffect(load,[q,cat,sort]);
+ return <><Header/><main className="section"><div className="container"><div className="section-head"><div><div className="eyebrow">Collection</div><h2>Shop all</h2></div></div><div style={{display:'grid',gridTemplateColumns:'2fr 1fr 1fr',gap:10,marginBottom:24}}><input className="field" style={{padding:13,border:'1px solid #ddd',borderRadius:12}} value={q} onChange={e=>setQ(e.target.value)} placeholder="Search products…"/><select value={cat} onChange={e=>{setCat(e.target.value);setParams(e.target.value?{category:e.target.value}:{})}}><option value="">All categories</option>{(data?.categories||[]).map((c:any)=><option value={c.slug} key={c.id}>{c.name}</option>)}</select><select value={sort} onChange={e=>setSort(e.target.value)}><option value="new">Newest</option><option value="price_asc">Price low to high</option><option value="price_desc">Price high to low</option><option value="featured">Featured</option></select></div>{!data?<p>Loading…</p>:data.items.length===0?<div className="notice">No products found. Try another search.</div>:<div className="grid grid-4">{data.items.map((p:any)=><ProductCard p={p} key={p.id}/>)}</div>}</div></main><Footer/></>
+}
