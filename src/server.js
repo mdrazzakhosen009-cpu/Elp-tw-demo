@@ -232,7 +232,7 @@ app.put("/api/admin/landing/:id", auth, async (req,res) => {
 
 app.use(express.static(path.join(__dirname, "..", "public"), { extensions:["html"] }));
 app.get("/admin", (_req,res)=>res.sendFile(path.join(__dirname,"..","public","admin.html")));
-app.get("*", (_req,res)=>res.sendFile(path.join(__dirname,"..","public","index.html")));
+app.get("/{*splat}", (_req,res)=>res.sendFile(path.join(__dirname,"..","public","index.html")));
 
 async function bootstrap() {
   await initDb();
