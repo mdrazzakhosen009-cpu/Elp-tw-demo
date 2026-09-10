@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trend Wear</title><meta name="description" content="Trend Wear — modern fashion for everyday style.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="announcement" class="announcement"></div>
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <button class="icon-btn mobile-only" data-action="menu" aria-label="Open menu">☰</button>
+    <a href="#top" class="brand" data-nav="top"><img id="brandLogo" src="/assets/logo.jpg" alt="Trend Wear logo"><span id="brandName">Trend Wear</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#shop" data-nav="shop">Shop</a><a href="#new" data-nav="new">New in</a><a href="#about" data-nav="about">About</a><a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="header-actions"><button class="text-btn" data-action="search">Search</button><button class="bag-btn" data-action="cart">Bag <span id="bagCount">0</span></button></div>
+  </div>
+  <div id="searchBar" class="search-bar"><div class="search-inner"><input id="searchInput" type="search" placeholder="Search the collection…" autocomplete="off"><button data-action="search-close" class="icon-btn">×</button></div></div>
+</header>
+<main id="app"></main>
+<footer id="footer" class="site-footer"></footer>
+
+<div id="drawerBackdrop" class="backdrop" hidden></div>
+<aside id="cartDrawer" class="drawer" aria-hidden="true"><div class="drawer-head"><span>Your bag</span><button data-action="cart-close" class="close-btn">×</button></div><div id="cartItems" class="drawer-body"></div><div id="cartSummary" class="drawer-foot"></div></aside>
+
+<div id="modalRoot" class="modal-root" hidden></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="/app.js" defer></script>
+</body></html>
