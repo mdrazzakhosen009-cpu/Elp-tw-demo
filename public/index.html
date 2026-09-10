@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trend Wear — Modern Fashion</title>
+<meta name="description" content="Trend Wear — modern essentials and refined everyday fashion.">
+<meta property="og:title" content="Trend Wear">
+<meta property="og:description" content="Modern essentials. Timeless confidence.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/assets/trend-wear-logo.jpg">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">
+    <img src="/assets/trend-wear-logo.jpg" alt="Trend Wear">
+  </a>
+  <nav class="nav">
+    <a href="#products">Shop</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button>
+    <button class="cart-btn" id="cartBtn">Bag <span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero"></section>
+<section class="intro" id="about"></section>
+
+<section class="shop-section" id="products">
+  <div class="section-head">
+    <div><p class="eyebrow">Collection</p><h2>Selected for you</h2></div>
+    <div class="filters">
+      <select id="categoryFilter"><option value="">All categories</option></select>
+      <select id="sortFilter"><option value="latest">Latest</option><option value="price-low">Price: low</option><option value="price-high">Price: high</option></select>
+    </div>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+</section>
+
+<section class="statement" id="why"></section>
+<section class="cta" id="cta"></section>
+
+<section class="contact" id="contact">
+  <div><p class="eyebrow">Need help?</p><h2>We’re here for you.</h2><p>Use the contact details configured by Trend Wear. Nothing is hardcoded.</p></div>
+  <div class="contact-links" id="contactLinks"></div>
+</section>
+</main>
+
+<footer><span>© <span id="year"></span> Trend Wear</span><a href="/admin">Admin</a></footer>
+
+<div class="overlay" id="searchOverlay" hidden>
+ <div class="modal search-modal"><button class="close" data-close>×</button><input id="searchInput" autofocus placeholder="Search products..."><div id="searchResults"></div></div>
+</div>
+<div class="overlay" id="cartOverlay" hidden>
+ <div class="modal cart-modal"><button class="close" data-close>×</button><h2>Your bag</h2><div id="cartItems"></div><div class="cart-total"><span>Total</span><strong id="cartTotal">৳0</strong></div><button class="primary full" id="checkoutBtn">Checkout</button></div>
+</div>
+<div class="overlay" id="checkoutOverlay" hidden>
+ <div class="modal checkout-modal"><button class="close" data-close>×</button><p class="eyebrow">Checkout</p><h2>Complete your order</h2>
+  <form id="checkoutForm">
+   <input name="name" required placeholder="Full name"><input name="phone" required placeholder="Phone number"><input name="email" type="email" placeholder="Email (optional)">
+   <textarea name="address" required placeholder="Delivery address"></textarea>
+   <select name="payment_method"><option value="cod">Cash on Delivery</option><option value="bkash">bKash — manual</option><option value="nagad">Nagad — manual</option><option value="rocket">Rocket — manual</option></select>
+   <textarea name="notes" placeholder="Order note (optional)"></textarea>
+   <button class="primary full">Place order</button>
+  </form><div id="checkoutMsg"></div>
+ </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
